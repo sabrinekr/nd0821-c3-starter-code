@@ -4,10 +4,7 @@ import pandas as pd
 df = pd.read_csv("census.csv")
 
 # remove spaces in column names
-df.columns = df.columns.str.replace(' ', '')
-
-print(df.columns)
-print(df.info())
+df.columns = df.columns.str.replace(" ", "")
 
 # save the new dataset
 df.to_csv("census_no_spaces.csv", index=False)

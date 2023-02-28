@@ -12,6 +12,7 @@ import uvicorn
 from pydantic import BaseModel, Field
 
 from starter.ml.model import inference, load_from_file
+from starter.ml.data import process_data
 
 import os
 
@@ -58,8 +59,8 @@ async def get_name(name: str):
 
 # response_model=ClassifierOut, status_code=200
 @census_app.post("/predict")
-def predict(data1: ClassifierFeatureIn):
-    data = pd.DataFrame.from_dict([data1.dict(by_alias=True)])
+def predict(input_data: ClassifierFeatureIn):
+    data = pd.DataFrame.from_dict([input_data.dict(by_alias=True)])
 
     cat_features = [
         "workclass",
@@ -73,12 +74,13 @@ def predict(data1: ClassifierFeatureIn):
     ]
 
     # Preprocess the data
-    X, _, _, _, _ = process_data(
-        data, categorical_features=cat_features, encoder=encoder, lb=lb, scaler=scaler, training=False
+    X, _, _, _ = process_data(
+        data, categorical_features=cat_features, encoder=encoder, lb=lb, training=False
     )
 
     # Predict salary
     preds = inference(classifier, X)
+    preds = lb.inverse_transform(preds)
 
     return {
         "prediction": preds[0]

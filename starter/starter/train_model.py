@@ -60,6 +60,8 @@ precision, recall, fbeta = compute_model_metrics(y=y_test, preds=preds)
 
 # Save the model.
 save_to_file(model.best_estimator_, os.path.join(root, "model", "classifier"))
+save_to_file(encoder, os.path.join(root, "model", "encoder"))
+save_to_file(lb, os.path.join(root, "model", "lb"))
 
 for feat in cat_features:
     slice_metrics = slice_metrics_perfomance(

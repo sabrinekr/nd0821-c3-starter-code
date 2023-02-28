@@ -1,11 +1,12 @@
 import pickle
+import pandas as pd
 
+from ml.data import process_data
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
 
 
-# Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -107,3 +108,62 @@ def load_from_file(filename):
     with open(f"{filename}.pkl", "rb") as f:
         model = pickle.load(f)
     return model
+
+
+def slice_metrics_perfomance(
+        df,
+        feature,
+        model,
+        encoder,
+        binarizer):
+    """
+    Computes model metrics based on data slices
+    Inputs
+    ------
+    df : pd.DataFrame
+         Dataframe containing the cleaned data
+    category : str
+         Dataframe column to slice
+    rf_model: 
+         Random forest model used to perform prediction
+    encoder: OneHotEncoder
+         Trained OneHotEncoder
+    binarizer: LabelBinarizer
+        Trained LabelBinarizer
+     Returns
+     -------
+     predictions : dict
+          Dictionary containing the predictions for each category feature
+    """
+    cat_features = [
+    "workclass",
+    "education",
+    "marital-status",
+    "occupation",
+    "relationship",
+    "race",
+    "sex",
+    "native-country"]
+    
+    target_var = "salary"
+
+    predictions = {}
+    for feat in df[feature].unique():
+        df_temp = df[df[feature] == feat]
+        X, y, _, _ = process_data(
+            df_temp, 
+            categorical_features=cat_features, 
+            label="salary", 
+            training=False, 
+            encoder = encoder, 
+            lb = binarizer)
+
+        predict_values = inference(model, X)
+        precision, recall, fbeta = compute_model_metrics(y, predict_values)
+
+        predictions[feat] = {
+            'precision': precision,
+            'recall': recall,
+            'fbeta': fbeta,
+            'rows': len(df_temp)}
+    return predictions

@@ -21,7 +21,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        dvc pull -r localremote
+        dvc pull -r driveremote
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip

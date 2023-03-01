@@ -19,6 +19,9 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8.16
+    - name: Configure github credentials
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup DVC
       uses: iterative/setup-dvc@v1
     - name: DVC pull data from remote google drive

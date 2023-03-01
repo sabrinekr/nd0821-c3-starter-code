@@ -14,14 +14,14 @@ jobs:
       matrix:
         python-version: [3.8]
     steps:
+    - run: gh issue comment $ISSUE --body "Thank you for opening this issue!"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: actions/checkout@v2
     - name: Set up Python 3.8.16
       uses: actions/setup-python@v2
       with:
         python-version: 3.8.16
-    - name: Configure github credentials
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup DVC
       uses: iterative/setup-dvc@v1
     - name: DVC pull data from remote google drive

@@ -105,7 +105,7 @@ def load_from_file(filename):
     Returns
     -------
     """
-    with open(f"{filename}.pkl", "rb") as f:
+    with open(f"{filename}.pkl.dvc", "rb") as f:
         model = pickle.load(f)
     return model
 

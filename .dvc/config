@@ -1,6 +1,14 @@
 [core]
-    remote = localremote
+    remote = s3remote
 ['remote "localremote"']
     url = gdrive://1n4qLBzZnQqI7xdaurW_4W9KrqHia1MSh
 ['remote "driveremote"']
     url = gdrive://1n4qLBzZnQqI7xdaurW_4W9KrqHia1MSh
+['remote "starterremote"']
+    url = gdrive://1WbMRhqCDC8vqALtw4FZ6TB6Vbokb-MuF
+['remote "starter_remote"']
+    url = gdrive://1WbMRhqCDC8vqALtw4FZ6TB6Vbokb-MuF
+['remote "starterremote1"']
+    url = gdrive://1WbMRhqCDC8vqALtw4FZ6TB6Vbokb
+['remote "s3remote"']
+    url = s3://starter3

@@ -12,7 +12,7 @@ import uvicorn
 from pydantic import BaseModel, Field
 
 from demo.ml.model import inference, load_from_file
-from demo.ml.data import process_data
+import demo.ml.data.process_data
 
 import os
 
@@ -74,7 +74,7 @@ def predict(input_data: ClassifierFeatureIn):
     ]
 
     # Preprocess the data
-    X, _, _, _ = process_data(
+    X, _, _, _ = demo.ml.data.process_data(
         data, categorical_features=cat_features, encoder=encoder, lb=lb, training=False
     )
 

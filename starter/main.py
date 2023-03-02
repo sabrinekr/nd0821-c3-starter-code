@@ -11,8 +11,8 @@ import uvicorn
 # BaseModel from Pydantic is used to define data objects.
 from pydantic import BaseModel, Field
 
-from starter.ml.model import inference, load_from_file
-from starter.ml.data import process_data
+from demo.ml.model import inference, load_from_file
+from demo.ml.data import process_data
 
 import os
 

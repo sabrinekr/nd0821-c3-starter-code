@@ -18,6 +18,14 @@ import os
 
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# DVC set-up for Render
+if "DYNO" in os.environ and os.path.isdir(".dvc"):
+    os.system("dvc config core.no_scm true")
+    os.system("dvc config core.hardlink_lock true")
+    if os.system("dvc pull  -r storage") != 0:
+        exit("dvc pull failed")
+    os.system("rm -r .dvc .apt/usr/lib/dvc")
+
 # Load the preprocessors and the classifier
 encoder = load_from_file(os.path.join(root_dir, "starter/starter/model", "encoder"))
 classifier = load_from_file(os.path.join(root_dir, "starter/starter/model", "classifier"))

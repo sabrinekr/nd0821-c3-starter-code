@@ -27,9 +27,9 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
     os.system("rm -r .dvc .apt/usr/lib/dvc")
 
 # Load the preprocessors and the classifier
-encoder = load_from_file(os.path.join(root_dir, "starter/model", "encoder"))
-classifier = load_from_file(os.path.join(root_dir, "starter/model", "classifier"))
-lb = load_from_file(os.path.join(root_dir, "starter/model", "lb"))
+encoder = load_from_file(os.path.join(root_dir, "encoder"))
+classifier = load_from_file(os.path.join(root_dir, "classifier"))
+lb = load_from_file(os.path.join(root_dir, "lb"))
 
 class ClassifierFeatureIn(BaseModel):
     age: int = Field(..., example=39)

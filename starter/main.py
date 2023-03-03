@@ -26,7 +26,7 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
         exit("dvc pull failed")
     os.system("rm -r .dvc .apt/usr/lib/dvc")
 
-print("listing the file of this directory", os.listdir(os.path.join(root_dir, "starter")))
+print("listing the file of this directory", os.listdir(os.path.join(root_dir, "starter/model")))
 
 # Load the preprocessors and the classifier
 encoder = load_from_file(os.path.join(root_dir, "encoder"))

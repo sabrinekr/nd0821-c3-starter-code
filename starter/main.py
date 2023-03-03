@@ -11,8 +11,8 @@ import uvicorn
 # BaseModel from Pydantic is used to define data objects.
 from pydantic import BaseModel, Field
 
-import demo.ml.data.process_data
-from demo.ml.model import inference, load_from_file
+from starter.demo.ml.data import process_data
+from starter.demo.ml.model import inference, load_from_file
 
 import os
 
@@ -74,7 +74,7 @@ def predict(input_data: ClassifierFeatureIn):
     ]
 
     # Preprocess the data
-    X, _, _, _ = demo.ml.data.process_data(
+    X, _, _, _ = process_data(
         data, categorical_features=cat_features, encoder=encoder, lb=lb, training=False
     )
 

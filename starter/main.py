@@ -19,9 +19,9 @@ import os
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Load the preprocessors and the classifier
-encoder = load_from_file(os.path.join(root_dir, "starter/model", "encoder"))
-classifier = load_from_file(os.path.join(root_dir, "starter/model", "classifier"))
-lb = load_from_file(os.path.join(root_dir, "starter/model", "lb"))
+encoder = load_from_file(os.path.join(root_dir, "starter/starter/model", "encoder"))
+classifier = load_from_file(os.path.join(root_dir, "starter/starter/model", "classifier"))
+lb = load_from_file(os.path.join(root_dir, "starter/starter/model", "lb"))
 
 class ClassifierFeatureIn(BaseModel):
     age: int = Field(..., example=39)

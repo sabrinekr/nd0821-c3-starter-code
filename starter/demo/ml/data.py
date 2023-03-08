@@ -1,6 +1,8 @@
 import numpy as np
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
+BUCKET_NAME = "starter3"
+KEY = "9e4671b0-8d3a-4451-b37a-6821f37b555d"
 
 def process_data(
     X, categorical_features=[], label=None, training=True, encoder=None, lb=None
@@ -68,3 +70,20 @@ def process_data(
 
     X = np.concatenate([X_continuous, X_categorical], axis=1)
     return X, y, encoder, lb
+
+def load_data_s3(path):
+    """Downloads data from s3 bucket to `path` loads it and returns it under a pandas.DataFrame format
+    Args:
+        path: (str) path to data (.csv) file
+    Return:
+        data: (pandas.DataFrame)
+    """
+    s3 = boto3.resource('s3')
+    try:
+        s3.Bucket(BUCKET_NAME).download_file(KEY, path)
+    except botocore.exceptions.ClientError as e:
+        if e.response['Error']['Code'] == "404":
+            print("The object does not exist.")
+        else:
+            raise
+    return load_data(path)

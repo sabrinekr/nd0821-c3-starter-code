@@ -11,27 +11,18 @@ import uvicorn
 # BaseModel from Pydantic is used to define data objects.
 from pydantic import BaseModel, Field
 
-from starter.demo.ml.data import process_data
+from starter.demo.ml.data import process_data, load_data_s3
 from starter.demo.ml.model import inference, load_from_file
 
 import os
 
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# DVC set-up for Render
-if "DYNO" in os.environ and os.path.isdir(".dvc"):
-    os.system("dvc config core.no_scm true")
-    os.system("dvc config core.hardlink_lock true")
-    if os.system("dvc pull  -r storage") != 0:
-        exit("dvc pull failed")
-    os.system("rm -r .dvc .apt/usr/lib/dvc")
-
-print("listing the file of this directory", os.listdir(os.path.join(root_dir, "starter/model")))
 
 # Load the preprocessors and the classifier
-encoder = load_from_file(os.path.join(root_dir, "encoder"))
-classifier = load_from_file(os.path.join(root_dir, "classifier"))
-lb = load_from_file(os.path.join(root_dir, "lb"))
+encoder = load_from_file(load_data_s3("encoder.pkl"))
+classifier = load_from_file(load_data_s3("classifier.pkl"))
+lb = load_from_file(load_data_s3("lb.pkl"))
 
 class ClassifierFeatureIn(BaseModel):
     age: int = Field(..., example=39)

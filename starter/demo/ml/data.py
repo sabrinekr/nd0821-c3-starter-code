@@ -1,8 +1,14 @@
+import boto3
+import botocore
 import numpy as np
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
 BUCKET_NAME = "starter3"
 KEY = "9e4671b0-8d3a-4451-b37a-6821f37b555d"
+
+ACCESS_ID = "ASIATGYWG677TEA5XW6L"
+ACCESS_KEY = "mBR/xcPJZ92b4v4DE6rG5zcOyNrsEBhoCaQnWsEI"
+SESSION_TOKEN = "FwoGZXIvYXdzELL//////////wEaDDlnd/CWpL5b8a7rjyLVAWrt36cr6SLTfweMNBDpF5EWsSNn0z7MlnNZihu2nUA19Ii7EewaIfCPopUh6h27Pz7BfvSaQPgVXCZ8uocXwGkkiLd56aHbJazGBW8hUT5iOOKHlIiDLVuXBcvEIxNV90WzuSnwpUJs7wRok7y7vhnrujA9Y2j3NJ1Jpsn2UWa7dea3hiJv/f4twV3CbVW0svuIg4Un52kNPzUBREea08iZdT1fzOJGiG4uLIoskqIRvZuysfqiVqscTAZSjE1MOxqXw/sWOHc7VZOHWpKetWI9soqp0SjTpqagBjItJMFImkFKIX11BQQv26gGkgSR0GTHiNtHS7y091T/qm1NXsTmqIF5cs53Ss8I"
 
 def process_data(
     X, categorical_features=[], label=None, training=True, encoder=None, lb=None
@@ -71,19 +77,29 @@ def process_data(
     X = np.concatenate([X_continuous, X_categorical], axis=1)
     return X, y, encoder, lb
 
-def load_data_s3(path):
+def load_data_s3(file_name, path):
     """Downloads data from s3 bucket to `path` loads it and returns it under a pandas.DataFrame format
     Args:
         path: (str) path to data (.csv) file
     Return:
         data: (pandas.DataFrame)
     """
-    s3 = boto3.resource('s3')
-    try:
-        s3.Bucket(BUCKET_NAME).download_file(KEY, path)
-    except botocore.exceptions.ClientError as e:
-        if e.response['Error']['Code'] == "404":
-            print("The object does not exist.")
-        else:
-            raise
-    return load_data(path)
+    s3 = boto3.client('s3',
+        region_name="us-east-1",
+        aws_access_key_id=ACCESS_ID,
+        aws_secret_access_key= ACCESS_KEY,
+        aws_session_token=SESSION_TOKEN)
+
+    s3.download_file(
+        Bucket=BUCKET_NAME, Key=path, Filename=file_name
+    )
+    return path
+    #s3.meta.client.download_file(BUCKET_NAME, file_name, path)
+    # try:
+    #     s3.meta.client.download_file(BUCKET_NAME, file_name, path)
+    # except botocore.exceptions.ClientError as e:
+    #     if e.response['Error']['Code'] == "404":
+    #         print("The object does not exist.")
+    #     else:
+    #         raise
+    # return path

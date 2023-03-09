@@ -14,4 +14,6 @@ ipython==7.22.0
 dvc[s3]
 pydantic
 dill
+boto3
+botocore
 Jinja2==3.0

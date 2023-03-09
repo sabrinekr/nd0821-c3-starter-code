@@ -18,11 +18,13 @@ import os
 
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
+load_data_s3("encoder.pkl", "encoder/encoder.pkl")
+load_data_s3("classifier.pkl", "classifier/classifier.pkl")
+load_data_s3("lb.pkl", "lb/lb.pkl")
 # Load the preprocessors and the classifier
-encoder = load_from_file(load_data_s3("encoder.pkl"))
-classifier = load_from_file(load_data_s3("classifier.pkl"))
-lb = load_from_file(load_data_s3("lb.pkl"))
+encoder = load_from_file("encoder")
+classifier = load_from_file("classifier")
+lb = load_from_file("lb")
 
 class ClassifierFeatureIn(BaseModel):
     age: int = Field(..., example=39)

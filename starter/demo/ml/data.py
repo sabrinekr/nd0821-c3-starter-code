@@ -6,12 +6,12 @@ from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 BUCKET_NAME = "starter3"
 KEY = "9e4671b0-8d3a-4451-b37a-6821f37b555d"
 
-ACCESS_ID = "ASIATGYWG677TEA5XW6L"
-ACCESS_KEY = "mBR/xcPJZ92b4v4DE6rG5zcOyNrsEBhoCaQnWsEI"
-SESSION_TOKEN = "FwoGZXIvYXdzELL//////////wEaDDlnd/CWpL5b8a7rjyLVAWrt36cr6SLTfweMNBDpF5EWsSNn0z7MlnNZihu2nUA19Ii7EewaIfCPopUh6h27Pz7BfvSaQPgVXCZ8uocXwGkkiLd56aHbJazGBW8hUT5iOOKHlIiDLVuXBcvEIxNV90WzuSnwpUJs7wRok7y7vhnrujA9Y2j3NJ1Jpsn2UWa7dea3hiJv/f4twV3CbVW0svuIg4Un52kNPzUBREea08iZdT1fzOJGiG4uLIoskqIRvZuysfqiVqscTAZSjE1MOxqXw/sWOHc7VZOHWpKetWI9soqp0SjTpqagBjItJMFImkFKIX11BQQv26gGkgSR0GTHiNtHS7y091T/qm1NXsTmqIF5cs53Ss8I"
+ACCESS_ID = "ASIATGYWG677QWKY7VFI"
+ACCESS_KEY = "J8kRZLQ1E6jxKkwh/t62o4sHRNjnIuGAnjWHEBa8"
+SESSION_TOKEN = "FwoGZXIvYXdzEOX//////////wEaDEs7zaoAo6OIjgL7kCLVATl4PX+8ghJ3jZFgTDOPUvfySasU1LNc5u5zFfI641faawcCwxqIdwz20Xde422TGme58VZzV2Bfd9qZImTFjk4gKXJGVrI52Tpf7DxzbK9AS5YTIWJv/hvFrE57f+lvMf8oY5XNL/vOJZw4Vhfq8galqFJugDLFwZLFPsAffNxOvAlR2v3tNqAIcPAQRKbiWyULxvCwnJB5V+eQq2HNDF7LqSQIR3Iqn4ggGEdPqXBdCJrObJbkTNI2cx84PdNF8KsmNDCClSHMvnIne/41TSO6eGnSKSiBzbGgBjItAZxFzZgLxmojCHgDFXbM8wy/H/thDl6ryw0AgqTnWR1D6MOZEr9jY2fM0jyl"
 
 def process_data(
-    X, categorical_features=[], label=None, training=True, encoder=None, lb=None
+    X, categorical_features, label=None, training=True, encoder=None, lb=None
 ):
     """ Process the data used in the machine learning pipeline.
 

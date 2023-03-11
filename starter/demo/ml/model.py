@@ -1,3 +1,4 @@
+import os
 import pickle
 import pandas as pd
 
@@ -5,6 +6,17 @@ from .data import process_data
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV
+
+cat_features = [
+    "workclass",
+    "education",
+    "marital-status",
+    "occupation",
+    "relationship",
+    "race",
+    "sex",
+    "native-country",
+]
 
 
 def train_model(X_train, y_train):
@@ -148,22 +160,27 @@ def slice_metrics_perfomance(
     target_var = "salary"
 
     predictions = {}
-    for feat in df[feature].unique():
-        df_temp = df[df[feature] == feat]
-        X, y, _, _ = process_data(
-            df_temp, 
-            categorical_features=cat_features, 
-            label="salary", 
-            training=False, 
-            encoder = encoder, 
-            lb = binarizer)
+    with open(os.path.join(os.getcwd(), "slice_output.txt"), "w") as fp:
+        for feat in df[feature].unique():
+            fp.write(f"Value = {feat}\n")
+            df_temp = df[df[feature] == feat]
+            X, y, _, _ = process_data(
+                df_temp, 
+                categorical_features=cat_features, 
+                label="salary", 
+                training=False, 
+                encoder = encoder, 
+                lb = binarizer)
 
-        predict_values = inference(model, X)
-        precision, recall, fbeta = compute_model_metrics(y, predict_values)
+            predict_values = inference(model, X)
+            precision, recall, fbeta = compute_model_metrics(y, predict_values)
+            metrics = f"precision: {precision} \t recall: {recall} \t f1_score: {fbeta} \n"
+            fp.write(metrics)
 
-        predictions[feat] = {
-            'precision': precision,
-            'recall': recall,
-            'fbeta': fbeta,
-            'rows': len(df_temp)}
+            predictions[feat] = {
+                'precision': precision,
+                'recall': recall,
+                'fbeta': fbeta,
+                'rows': len(df_temp)}
     return predictions
+

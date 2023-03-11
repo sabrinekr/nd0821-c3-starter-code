@@ -52,6 +52,7 @@ X_test, y_test, encoder, lb = process_data(
 
 # Train and save a model.
 model = train_model(X_train, y_train)
+print("y train", y_train)
 
 # Test the model.
 preds = inference(model=model, X=X_test)

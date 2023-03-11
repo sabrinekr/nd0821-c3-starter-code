@@ -1,0 +1,84 @@
+Value =  United-States
+precision: 0.8302521008403362 	 recall: 0.5511086319899595 	 f1_score: 0.6624759031095466 
+Value =  Cuba
+precision: 0.9285714285714286 	 recall: 0.52 	 f1_score: 0.6666666666666666 
+Value =  Jamaica
+precision: 0.4 	 recall: 0.2 	 f1_score: 0.26666666666666666 
+Value =  India
+precision: 0.673469387755102 	 recall: 0.825 	 f1_score: 0.7415730337078652 
+Value =  ?
+precision: 0.7936507936507936 	 recall: 0.684931506849315 	 f1_score: 0.7352941176470589 
+Value =  Mexico
+precision: 0.8666666666666667 	 recall: 0.3939393939393939 	 f1_score: 0.5416666666666666 
+Value =  South
+precision: 0.5882352941176471 	 recall: 0.625 	 f1_score: 0.6060606060606061 
+Value =  Puerto-Rico
+precision: 0.7777777777777778 	 recall: 0.5833333333333334 	 f1_score: 0.6666666666666666 
+Value =  Honduras
+precision: 1.0 	 recall: 1.0 	 f1_score: 1.0 
+Value =  England
+precision: 0.7916666666666666 	 recall: 0.6333333333333333 	 f1_score: 0.7037037037037038 
+Value =  Canada
+precision: 0.8 	 recall: 0.5128205128205128 	 f1_score: 0.625 
+Value =  Germany
+precision: 0.8571428571428571 	 recall: 0.5454545454545454 	 f1_score: 0.6666666666666665 
+Value =  Iran
+precision: 0.7142857142857143 	 recall: 0.8333333333333334 	 f1_score: 0.7692307692307692 
+Value =  Philippines
+precision: 0.8367346938775511 	 recall: 0.6721311475409836 	 f1_score: 0.7454545454545455 
+Value =  Italy
+precision: 0.8571428571428571 	 recall: 0.48 	 f1_score: 0.6153846153846153 
+Value =  Poland
+precision: 0.8571428571428571 	 recall: 0.5 	 f1_score: 0.631578947368421 
+Value =  Columbia
+precision: 0.5 	 recall: 0.5 	 f1_score: 0.5 
+Value =  Cambodia
+precision: 1.0 	 recall: 0.2857142857142857 	 f1_score: 0.4444444444444445 
+Value =  Thailand
+precision: 1.0 	 recall: 0.6666666666666666 	 f1_score: 0.8 
+Value =  Ecuador
+precision: 0.5 	 recall: 0.5 	 f1_score: 0.5 
+Value =  Laos
+precision: 1.0 	 recall: 0.5 	 f1_score: 0.6666666666666666 
+Value =  Taiwan
+precision: 0.85 	 recall: 0.85 	 f1_score: 0.85 
+Value =  Haiti
+precision: 0.5 	 recall: 0.25 	 f1_score: 0.3333333333333333 
+Value =  Portugal
+precision: 1.0 	 recall: 0.25 	 f1_score: 0.4 
+Value =  Dominican-Republic
+precision: 1.0 	 recall: 0.5 	 f1_score: 0.6666666666666666 
+Value =  El-Salvador
+precision: 1.0 	 recall: 0.6666666666666666 	 f1_score: 0.8 
+Value =  France
+precision: 0.7777777777777778 	 recall: 0.5833333333333334 	 f1_score: 0.6666666666666666 
+Value =  Guatemala
+precision: 1.0 	 recall: 0.3333333333333333 	 f1_score: 0.5 
+Value =  China
+precision: 0.7391304347826086 	 recall: 0.85 	 f1_score: 0.7906976744186046 
+Value =  Japan
+precision: 0.782608695652174 	 recall: 0.75 	 f1_score: 0.7659574468085107 
+Value =  Yugoslavia
+precision: 0.8 	 recall: 0.6666666666666666 	 f1_score: 0.7272727272727272 
+Value =  Peru
+precision: 1.0 	 recall: 0.5 	 f1_score: 0.6666666666666666 
+Value =  Outlying-US(Guam-USVI-etc)
+precision: 1.0 	 recall: 1.0 	 f1_score: 1.0 
+Value =  Scotland
+precision: 1.0 	 recall: 0.6666666666666666 	 f1_score: 0.8 
+Value =  Trinadad&Tobago
+precision: 1.0 	 recall: 0.5 	 f1_score: 0.6666666666666666 
+Value =  Greece
+precision: 0.7142857142857143 	 recall: 0.625 	 f1_score: 0.6666666666666666 
+Value =  Nicaragua
+precision: 1.0 	 recall: 0.5 	 f1_score: 0.6666666666666666 
+Value =  Vietnam
+precision: 0.6666666666666666 	 recall: 0.4 	 f1_score: 0.5 
+Value =  Hong
+precision: 0.8 	 recall: 0.6666666666666666 	 f1_score: 0.7272727272727272 
+Value =  Ireland
+precision: 1.0 	 recall: 0.6 	 f1_score: 0.7499999999999999 
+Value =  Hungary
+precision: 1.0 	 recall: 0.3333333333333333 	 f1_score: 0.5 
+Value =  Holand-Netherlands
+precision: 1.0 	 recall: 1.0 	 f1_score: 1.0 

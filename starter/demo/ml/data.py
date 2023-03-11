@@ -94,12 +94,3 @@ def load_data_s3(file_name, path):
         Bucket=BUCKET_NAME, Key=path, Filename=file_name
     )
     return path
-    #s3.meta.client.download_file(BUCKET_NAME, file_name, path)
-    # try:
-    #     s3.meta.client.download_file(BUCKET_NAME, file_name, path)
-    # except botocore.exceptions.ClientError as e:
-    #     if e.response['Error']['Code'] == "404":
-    #         print("The object does not exist.")
-    #     else:
-    #         raise
-    # return path
